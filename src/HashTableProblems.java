@@ -18,10 +18,12 @@ public class HashTableProblems {
 			Hashtable<Integer, Integer> htable = new Hashtable<Integer, Integer>(N, 0.75f);
 			for(int i = 0; i < array.length; i++) {
 				int num = (int)(Math.random() * ((limit-1) + 1)) + 1;
+				htable.put(new Integer(num), num);
 				while(htable.containsKey(num)) {
 					num = (int)(Math.random() * ((limit-1) + 1)) + 1;
 				}
 				array[i] = num;
+				htable.put(new Integer(num),num);
 				
 			}
 			
