@@ -14,7 +14,7 @@ public class HashTableProblems {
 			int N = 101;
 			Hashtable<Integer, Integer> htable = new Hashtable<Integer, Integer>(N, 0.75f);
 			for(int i = 0; i < array.length; i++) {
-				
+				//t
 				if(htable.containsKey(array[i])) {
 					htable.remove(array[i]);
 				}
