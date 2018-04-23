@@ -9,7 +9,7 @@ public class HashTableProblems {
 		int[] array = new int[n];
 		if(nodups == false) {
 			for (int i = 0; i < array.length; i++) {
-				int num = (int)(Math.random() * ((limit-1) + 1)) + 1;
+				int num = (int)(Math.random() * (limit)) + 1;
 				array[i] = num;
 			}
 		}
@@ -17,10 +17,10 @@ public class HashTableProblems {
 			int N = 101;
 			Hashtable<Integer, Integer> htable = new Hashtable<Integer, Integer>(N, 0.75f);
 			for(int i = 0; i < array.length; i++) {
-				int num = (int)(Math.random() * ((limit-1) + 1)) + 1;
-				htable.put(new Integer(num), num);
+				int num = (int)(Math.random() * (limit)) + 1;
+				
 				while(htable.containsKey(num)) {
-					num = (int)(Math.random() * ((limit-1) + 1)) + 1;
+					num = (int)(Math.random() * (limit)) + 1;
 				}
 				array[i] = num;
 				htable.put(new Integer(num),num);
@@ -64,7 +64,8 @@ public class HashTableProblems {
 		htable.put(new Integer(d-nums[0]), (d-nums[0]));
 		for(int i = 1; i < nums.length; i++) {
 			if(htable.containsKey(nums[i])) {
-				pair.add(new Tuple(nums[i],(d-nums[i])));
+				if(nums[i] != (d-nums[i]))
+					pair.add(new Tuple(nums[i],(d-nums[i])));
 			}
 			else {
 				htable.put(new Integer(d-nums[i]), (d-nums[i]));
